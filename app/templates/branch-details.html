@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero is-top-banner">
+    <h1 class="title is-3">Customers</h1>
+</div>
+<table class="table is-striped is-bordered is-narrow is-hoverable is-fullwidth">
+    <thead>
+        <td>SN</td>
+        <td>Full name</td>
+        <td>Status</td>
+        <td>Date joined</td>
+        <td>Local Branch</td>
+        <td>Account Number</td>
+        <td>Balance</td>
+
+    </thead>
+    {%for customer in branch.customers %}
+    <tr>
+        <td>{{customer.id}}</td>
+        <td>{{customer.fname}} {{customer.lname}}</td>
+        <td>{{customer.status}}</td>
+        <td>{{customer.joindate}}</td>
+        <td>{{customer.homebranch.name}}</td>
+        <td>{{customer.accounts[0].number}}</td>
+        <td>{{customer.accounts[0].balance}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

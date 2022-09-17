@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero is-top-banner">
+    <h1 class="title is-3">Create New User</h1>
+</div>
+
+<div class="is-padded">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div class="columns">
+            <div class="column is-6">
+                {{ form.fname.label }}
+                {{ form.fname(class="input", placeholder="First name") }}
+                {{ form.lname.label }}
+                {{ form.lname(class="input", placeholder="Last name") }}
+                {{ form.gender.label }}
+                {{ form.gender(class="input") }}
+                {{ form.d_o_b.label }}
+                {{ form.d_o_b(class="input") }}
+                {{ form.nationality.label }}
+                {{ form.nationality(class="input") }}
+                {{ form.nin_number.label }}
+                {{ form.nin_number(class="input") }}
+                {{ form.phone.label }}
+                {{ form.phone(class="input", placeholder="0771245678") }}
+
+
+
+
+            </div>
+            <div class="column is-6">
+                {{ form.email.label }}
+                {{ form.email(class="input", placeholder="johnsmith@gmail.com") }}
+                {{ form.address.label }}
+                {{ form.address(class="input") }}
+                {{ form.occupation.label }}
+                {{ form.occupation(class="input") }}
+
+                {{ form.n_o_kin.label }}
+                {{ form.n_o_kin(class="input") }}
+                {{ form.branch.label }}
+                {{ form.branch(class="input select dropdown") }}
+                {{ form.kind.label }}
+                {{ form.kind(class="input") }}
+                {{ form.limit.label }}
+                {{ form.limit(class="input") }}
+            </div>
+
+        </div>
+        {{ form.submit(class="button is-primary") }}
+    </form>
+</div>
+
+{% endblock %}

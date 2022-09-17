@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - Free Bulma template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+sans+pro:wght@300;400;500;600&family=Work+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pulse.css') }}" />
+    <style>
+        * {
+            font-family: "Source sans pro";
+        }
+
+        .is-top-banner {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 0.5rem;
+        }
+
+        label,
+        thead,
+        th {
+            font-weight: 600;
+        }
+
+        #navMenu a,
+        .brand-text {
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #file-upload-button {
+            border: none;
+            background-color: transparent;
+        }
+
+        .is-padded {
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    {% block topnav %}
+    {% include "snippets/topnav.html" %}
+    {% endblock %}
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3 ">
+                {% include "snippets/sidenav.html" %}
+            </div>
+            <div class="column is-9">
+                <div class="columns">
+                    <div class="column is-full">
+                        {% for message in get_flashed_messages() %}
+                        <div class="notification is-light">
+                            <button class="delete"></button>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+
+</html>
